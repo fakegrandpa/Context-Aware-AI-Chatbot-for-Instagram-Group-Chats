@@ -1,0 +1,25 @@
+# Secrets & credentials
+.env
+
+# Runtime data (live Instagram session, state, and chat DB — never commit)
+data/session.json
+data/state.json
+data/yap.db
+data/yap.db-shm
+data/yap.db-wal
+working_session.json
+
+# Logs
+n1_run.log
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local dev tooling
+.claude/
+
+# Locally-supplied binaries (e.g. ffmpeg.exe) — never commit
+bin/
