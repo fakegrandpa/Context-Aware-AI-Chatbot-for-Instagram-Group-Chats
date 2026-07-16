@@ -8,6 +8,8 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(exist_ok=True)
+BIN_DIR = BASE_DIR / "bin"
+BIN_DIR.mkdir(exist_ok=True)
 
 SESSION_PATH = DATA_DIR / "session.json"
 STATE_PATH = DATA_DIR / "state.json"
@@ -89,4 +91,15 @@ VOICE_COOLDOWN_SECONDS = float(os.getenv("VOICE_COOLDOWN_SECONDS", "300"))
 # mode selector decides whether a voice reply is "due" or "too recent".
 VOICE_HISTORY_WINDOW = int(os.getenv("VOICE_HISTORY_WINDOW", "7"))
 
-FFMPEG_PATH = os.getenv("FFMPEG_PATH", "ffmpeg").strip()
+raw_ffmpeg_path = os.getenv("FFMPEG_PATH", "ffmpeg").strip()
+if raw_ffmpeg_path == "ffmpeg" or not raw_ffmpeg_path:
+    local_exe = BIN_DIR / "ffmpeg.exe"
+    local_bin = BIN_DIR / "ffmpeg"
+    if local_exe.exists():
+        FFMPEG_PATH = str(local_exe)
+    elif local_bin.exists():
+        FFMPEG_PATH = str(local_bin)
+    else:
+        FFMPEG_PATH = "ffmpeg"
+else:
+    FFMPEG_PATH = raw_ffmpeg_path
