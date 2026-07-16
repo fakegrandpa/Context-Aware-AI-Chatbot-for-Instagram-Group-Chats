@@ -36,7 +36,7 @@ respond, and posts back text or voice replies in a consistent character voice.
 ```bash
 # 1. Clone the repository
 git clone https://github.com/atharv2213/eve.git
-cd N1
+cd eve
 
 # 2. Create and activate a virtual environment
 python -m venv .venv
