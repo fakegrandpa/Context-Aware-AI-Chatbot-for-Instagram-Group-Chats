@@ -35,7 +35,7 @@ respond, and posts back text or voice replies in a consistent character voice.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/fakegrandpa/eve.git
+git clone https://github.com/fakegrandpa/Context-Aware-AI-Chatbot-for-Instagram-Group-Chats.git
 cd eve
 
 # 2. Create and activate a virtual environment
